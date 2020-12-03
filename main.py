@@ -2,7 +2,7 @@ from random import randrange
 import matplotlib.pyplot as plt
 import os
 from time import sleep
-from betclass import Bet, Spin, Bankroll, Pnl
+from betclass import Bet, Spin
 
 
 #---------------------------------------
@@ -81,6 +81,7 @@ while runbet:
             bet_input = -1
 
         else:
+            print("you bet represents", bet_input * 100 / bankroll_input, "% of your stack")
             break
 
     initial_bet = Bet(bankroll_input, objective_input, color_choice_input, bet_input)
@@ -94,23 +95,23 @@ while runbet:
 
 
 
-    #**********************************
-    #Start game
-    #**********************************
-    print("**********************************************************************************")
-    print("You sit at the table with", initial_bet.get_bankroll(),"$, your objective is to make",
-          initial_bet.get_objective(),"$. Your first bet is", initial_bet.get_value(),"$ on",initial_bet.get_color())
-    print("********************************************************************************* ")
-    print("")
-    sleep(3)
-    print("3")
-    sleep(1)
-    print("2")
-    sleep(1)
-    print("1")
-    sleep(1)
-    print("*********HERE WE GO*********")
-    sleep(1)
+#**********************************
+#Start game
+#**********************************
+print("**********************************************************************************")
+print("You sit at the table with", initial_bet.get_bankroll(),"$, your objective is to make",
+      initial_bet.get_objective(),"$. Your first bet is", initial_bet.get_value(),"$ on",initial_bet.get_color())
+print("********************************************************************************* ")
+print("")
+sleep(3)
+print("3")
+sleep(1)
+print("2")
+sleep(1)
+print("1")
+sleep(1)
+print("*********HERE WE GO*********")
+sleep(1)
 plt.figure()
 plt.ion()
 multiple_count = 0
@@ -246,5 +247,5 @@ while multiple_count <= multiple_input:
     plt.ylabel("Bankroll")
     plt.pause(0.1)
     multiple_count += 1
-    plt.show(block=False)
+    plt.show()
 os.system("pause")
