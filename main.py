@@ -13,8 +13,6 @@ io = SteinCliIo()
 #Welcome message
 #---------------------------------------
 io.display_welcome()
-#test
-io.display_bao()
 runbet= True
 
 

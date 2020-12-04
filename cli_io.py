@@ -32,14 +32,6 @@ class SteinCliIo(object):
     self.print(intro)
     self.print_separator()
 
-  def display_bao(self):
-
-    test = "je teste ce systeme.\n" \
-      "ça fait quoi si je mets deux backslashn\n\n" \
-      "alors ça fait quoi ?\n"
-
-    self.print(test)
-    self.print_separator()
 
 
   def print_separator(self, character="*", length=32, padding=1):
