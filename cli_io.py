@@ -36,7 +36,7 @@ class SteinCliIo(object):
 
     test = "je teste ce systeme.\n" \
       "ça fait quoi si je mets deux backslashn\n\n" \
-      "alors ça fait quoi ?\n \
+      "alors ça fait quoi ?\n"
 
     self.print(test)
     self.print_separator()
