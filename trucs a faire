@@ -1,0 +1,14 @@
+découper en fonctions pour que ce soit plus lisible
+faire des bet setup prédéfinis
+rajouter l'option de jouer avec les vraies limites des casinos :
+
+Type de mise	Fois le minimum de la table
+*Numéro plein	30
+*Douzaine	    500
+*Colonne	    500
+*Chance simple	1000
+
+
+faire les mégastats
+faire une interface
+rajouter l'option de roulette classique + roulette en série + roulette en martingale avec toutes les options
