@@ -48,3 +48,38 @@ class SteinCliIo(object):
     self.print(character * length, to_stack=True)
     for i in range(padding):
       self.print("", to_stack=True)
+
+class Betsetup:
+
+  """set the initial bet"""
+
+  def __init__(self):
+    self.stack = 0
+    self.objective = 0
+    self.color = 0
+    self.value = 0
+
+  def get_stack(self):
+    return self.stack
+
+  def set_stack(self, amount):
+    self.stack = amount
+
+  def get_objective(self):
+    return self.objective
+
+  def set_objective(self, amount):
+    self.objective = amount
+
+  def get_color(self):
+    return self.color
+
+  def set_color(self, color):
+    self.color = color
+
+  def get_value(self):
+    return self.value
+
+  def set_value(self, amount):
+    self.value = amount
+
