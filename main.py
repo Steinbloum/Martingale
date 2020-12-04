@@ -12,12 +12,7 @@ io = SteinCliIo()
 #---------------------------------------
 #Welcome message
 #---------------------------------------
-
-io.print("Hello gambler, you are playing roulette Martingale.")
-io.print("Rules are simple, you change colors when you win, you double down if you loose.")
-io.print("Get rich or get rekt trying, can you beat the odds ?")
-io.print("Choose an objective, game will continue until objective is met or until you have nothing left.")
-io.print("******************************************")
+io.display_welcome()
 
 runbet= True
 
