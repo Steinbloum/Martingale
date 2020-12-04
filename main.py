@@ -4,6 +4,9 @@ from random import randrange
 import matplotlib.pyplot as plt
 
 from betclass import Bet, Spin
+from cli_io import SteinCliIo
+
+io = SteinCliIo()
 
 
 #---------------------------------------
