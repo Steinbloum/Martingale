@@ -247,5 +247,4 @@ while multiple_count <= multiple_input:
     plt.ylabel("Bankroll")
     plt.pause(0.1)
     multiple_count += 1
-    plt.show()
-os.system("pause")
+    plt.show(block=True)
