@@ -1,4 +1,7 @@
 class SteinCliIo(object):
   def __init__(self):
-    print("Hello world!")
-    pass
+    self.stack = []
+
+  def print(self, msg):
+    self.stack.append(msg)
+    print(msg)
