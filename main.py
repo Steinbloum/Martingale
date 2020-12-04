@@ -1,6 +1,5 @@
 from random import randrange
 import matplotlib.pyplot as plt
-import os
 from time import sleep
 from betclass import Bet, Spin
 
