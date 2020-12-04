@@ -38,7 +38,7 @@ class SteinCliIo(object):
       "ça fait quoi si je mets deux backslashn\n\n" \
       "alors ça fait quoi ?\n \
 
-    self.print()
+    self.print(test)
     self.print_separator()
 
 
