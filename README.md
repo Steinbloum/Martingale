@@ -15,7 +15,7 @@ You may want to setup and activate a virtual environment for the project using [
 - Activate virtual environment using `source env/bin/activate`
 
 #### Install dependencies
-The list of Python is in `requirements.txt`. You can install them by running `pip install -r requirements.txt` inside your virtual environment (if you're using one -- which you should be).
+The list of Python dependencies is in `requirements.txt`. You can install them by running `pip install -r requirements.txt` inside your virtual environment (if you're using one -- which you should be).
 
 #### Run project
 You can run the project using `python main.py`.
