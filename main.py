@@ -13,6 +13,12 @@ game_on = True
 #Welcome message
 #---------------------------------------
 io.display_welcome()
+#lists for global stats
+globallist_win_loss = []
+globallist_spicount = []
+globallist_gamecount = []
+globallist_loosingstreak = []
+
 while game_on:
     #**********************************
     #Start game
@@ -27,7 +33,7 @@ while game_on:
     plt.figure()
     plt.ion()
     multiple_count = 0
-    while multiple_count <= initial_bet.get_serie():
+    while multiple_count < initial_bet.get_serie():
 
 
         #Define lists
@@ -52,6 +58,7 @@ while game_on:
         bankroll = initial_bet.get_stack()
         objective = initial_bet.get_objective()
         loosing_streak = 0
+        loosing_streak_list.append(0)
 
 
         spin = Spin(int(randrange(37)))
@@ -64,6 +71,7 @@ while game_on:
 
 
             #add values to lists
+
             spincount +=1
             spinlist.append(spincount)
             if spincount < 2:
@@ -76,6 +84,8 @@ while game_on:
             if bankroll_list[-1] >= objective:
                 print("Congrats, you beat the casino, it took", spincount, "spins, you walk away with", bankroll_list[-1],"$")
                 print("The longest loosing streak was", max(loosing_streak_list), " spins in a row")
+                globallist_win_loss.append("WIN")
+                globallist_spicount.append(spincount)
                 continue_game = False
 
             #END if REKT
@@ -84,6 +94,8 @@ while game_on:
                 print("your max bankroll was ", max(bankroll_list), "$")
                 print("the longest loosing streak was", max(loosing_streak_list), "spins in a row")
                 print("Go sell a kidney and come play again !")
+                globallist_win_loss.append("REKT")
+                globallist_spicount.append(spincount)
                 continue_game = False
 
             #Spin if conditions ok
@@ -113,6 +125,7 @@ while game_on:
                     if spin.get_color() == color_played:
                         #add the loosing streak to the list
                         loosing_streak_list.append(loosing_streak)
+                        globallist_loosingstreak.append(loosing_streak_list[-1])
                         #clear the loosing streak
                         loosing_streak = 0
                         #change color
@@ -157,7 +170,13 @@ while game_on:
         plt.ylabel("Bankroll")
         plt.pause(0.1)
         multiple_count += 1
+        globallist_gamecount.append(1)
     plt.show()
+    print(len(globallist_gamecount))
+    print("win", globallist_win_loss.count("WIN"),"rekt", globallist_win_loss.count("REKT"))
+    print("won", globallist_win_loss.count("WIN") / len(globallist_gamecount) * 100, "% of your games")
+    print("the longest loosing streak was", max(globallist_loosingstreak), "times in a row")
+    print("you spinned the wheel a total of",sum(globallist_spicount) ,"times.")
     run_again = input("do you want to play again ?(yes/no) ")
     if run_again == "yes":
         print("Carefull this gets addictive !")
