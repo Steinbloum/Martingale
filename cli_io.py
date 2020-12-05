@@ -28,9 +28,11 @@ class SteinCliIo(object):
     Displays the welcome text.
     """
     intro = "Hello gambler, you are playing roulette Martingale.\n\n" \
-      "Rules are simple, you change colors when you win, you double down if you loose.\n" \
+      "Rules are simple, you change colors when you win, " \
+      "you double down if you loose.\n" \
       "Get rich or get rekt trying, can you beat the odds ?\n\n" \
-      "Choose an objective, game will continue until objective is met or until you have nothing left.\n"
+      "Choose an objective, game will continue until objective is met " \
+      "or until you have nothing left.\n"
     self.print(intro)
     self.print_separator()
 
