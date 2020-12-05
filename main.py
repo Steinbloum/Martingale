@@ -2,7 +2,7 @@ from random import randrange
 
 import matplotlib.pyplot as plt
 
-from betclass import Bet, Spin
+from betclass import Spin
 from cli_io import SteinCliIo
 from gamefunctions import *
 
@@ -17,6 +17,12 @@ io.display_welcome()
 #**********************************
 #Start game
 #**********************************
+set_initial_stack()
+set_objective()
+set_color()
+set_bet_value()
+set_serie()
+
 io.display_game_start(initial_bet)
 plt.figure()
 plt.ion()

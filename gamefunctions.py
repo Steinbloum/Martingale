@@ -1,5 +1,4 @@
 from cli_io import Betsetup
-from cli_io import SteinCliIo
 
 initial_bet = Betsetup()
 
@@ -83,8 +82,12 @@ def set_bet_value():
 def set_serie():
     serie = "bao"
     serie = input("how many times do you wish to run that setup?")
-    if serie != int():
-        print("you must enter a numerical value")
+    try:
+        serie = int(serie)
+    except ValueError:
+        print("You must write a numerical value")
+    if serie < 1:
+        print("you must run this at least once")
     else :
         initial_bet.set_serie(serie)
         print("All right, we are running this setup {} times.".format(initial_bet.get_serie()))

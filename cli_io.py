@@ -1,5 +1,6 @@
 from time import sleep
 
+
 class SteinCliIo(object):
   """
   Manages input and output (IO) in the command line interface (CLI).
@@ -47,11 +48,12 @@ class SteinCliIo(object):
     self.print_separator()
     self.print(
       "You sit at the table with {}$, your objective is to make {}$." \
-      " Your first bet is {}$ on {}".format(
+      " Your first bet is {}$ on {}. You are running that setup {} times".format(
         initial_bet.get_stack(),
         initial_bet.get_objective(),
         initial_bet.get_value(),
         initial_bet.get_color(),
+        initial_bet.get_serie()
       )
     )
     self.print_separator()
@@ -142,3 +144,4 @@ class Betsetup:
 
   def get_serie(self):
     return self.serie
+
