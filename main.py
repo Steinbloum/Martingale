@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 from betclass import Bet, Spin
 from cli_io import SteinCliIo
+from gamefunctions import *
 
 io = SteinCliIo()
 
@@ -11,16 +12,17 @@ io = SteinCliIo()
 #---------------------------------------
 #Welcome message
 #---------------------------------------
+
+
+
+
 io.display_welcome()
-runbet= True
 
 
-while runbet:
 
 
-    print("class result", initial_bet.get_bankroll(), initial_bet.get_objective(), initial_bet.get_color(), initial_bet.get_value())
-    multiple_input = int(input("how many times do you want ot run this bet setup ? "))
-    break
+
+
 
 
 
@@ -32,6 +34,7 @@ while runbet:
 #Start game
 #**********************************
 io.display_game_start(initial_bet)
+multiple_input = int(input("how many times do you want ot run this bet setup ? "))
 plt.figure()
 plt.ion()
 multiple_count = 0

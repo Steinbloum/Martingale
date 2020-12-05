@@ -48,7 +48,7 @@ class SteinCliIo(object):
     self.print(
       "You sit at the table with {}$, your objective is to make {}$." \
       " Your first bet is {}$ on {}".format(
-        initial_bet.get_bankroll(),
+        initial_bet.get_stack(),
         initial_bet.get_objective(),
         initial_bet.get_value(),
         initial_bet.get_color()

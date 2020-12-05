@@ -52,6 +52,7 @@ def set_color():
             print("You must choose between black or red only... Do you even know roulette?")
     # validate input
     initial_bet.set_color(color_choice_input)
+    print("your first bet will be on {}".format(initial_bet.get_color()))
 
 def set_bet_value():
     # test test until valid input for bet
@@ -79,8 +80,4 @@ def set_bet_value():
             break
     initial_bet.set_value(bet_input)
 
-set_initial_stack()
-set_objective()
-set_color()
-set_bet_value()
-print(initial_bet.get_stack(), initial_bet.get_objective(), initial_bet.get_color(), initial_bet.get_value())
+
