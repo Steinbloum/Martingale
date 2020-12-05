@@ -23,7 +23,6 @@ def set_initial_stack():
 def set_objective():
     # test test until valid input for objective
     objective_input = initial_bet.get_stack()
-    print(objective_input, initial_bet.get_stack())
     while objective_input <= initial_bet.get_stack():
         objective_input = int(input("Please type in your objective : "))
         if objective_input > initial_bet.get_stack():
@@ -34,9 +33,7 @@ def set_objective():
             print("If you want to loose money what the fuck are you doing here?")
     # validate input
     initial_bet.set_objective(objective_input)
-    print(objective_input, initial_bet.get_stack())
     print("you are aiming for a ", ((objective_input - initial_bet.get_stack()) / initial_bet.get_stack() * 100), "% gain. Nice !")
-    print(objective_input, initial_bet.get_stack())
 
 
 

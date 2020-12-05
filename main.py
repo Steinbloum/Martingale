@@ -70,8 +70,6 @@ while game_on:
                 winnings_list.append(0)
             else:
                 winnings_list.append(bankroll_list[-1] - bankroll_list[-2])
-            print("bklistcnt", len(bankroll_list))
-            print("spinliscnt", len(spinlist))
 
 
             #END if objective complete
