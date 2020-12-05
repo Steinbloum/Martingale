@@ -35,7 +35,7 @@ def set_objective():
     # validate input
     initial_bet.set_objective(objective_input)
     print(objective_input, initial_bet.get_stack())
-    print("you are aiming for a ", ((objective_input - initial_bet.get_stack()) / objective_input * 100), "% gain. Nice !")
+    print("you are aiming for a ", ((objective_input - initial_bet.get_stack()) / initial_bet.get_stack() * 100), "% gain. Nice !")
     print(objective_input, initial_bet.get_stack())
 
 set_initial_stack()
