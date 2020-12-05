@@ -1,3 +1,5 @@
+from time import sleep
+
 class SteinCliIo(object):
   """
   Manages input and output (IO) in the command line interface (CLI).
@@ -33,6 +35,40 @@ class SteinCliIo(object):
     self.print_separator()
 
 
+  def display_game_start(self, initial_bet):
+    """
+    Displays the game start text.
+
+    Parameters:
+      - initial_bet (object): an object containing the bankroll, objective
+                              bet value and bet color
+    """
+    self.print_separator()
+    self.print(
+      "You sit at the table with {}$, your objective is to make {}$." \
+      " Your first bet is {}$ on {}".format(
+        initial_bet.get_bankroll(),
+        initial_bet.get_objective(),
+        initial_bet.get_value(),
+        initial_bet.get_color()
+      )
+    )
+    self.print_separator()
+    sleep(3)
+    self.print_countdown(3)
+    self.print("*********HERE WE GO*********", to_stack=False)
+
+  def print_countdown(self, duration):
+    """
+    Prints a countdown.
+
+    Parameters:
+      - duration (integer): the amount of seconds for the countdown.
+    """
+    for i in range(duration):
+      self.print(duration - i, to_stack=False)
+      sleep(1)
+
 
   def print_separator(self, character="*", length=32, padding=1):
     """
@@ -44,10 +80,10 @@ class SteinCliIo(object):
       - padding (integer): number of blank lines above/below separator
     """
     for i in range(padding):
-      self.print("", to_stack=True)
-    self.print(character * length, to_stack=True)
+      self.print("", to_stack=False)
+    self.print(character * length, to_stack=False)
     for i in range(padding):
-      self.print("", to_stack=True)
+      self.print("", to_stack=False)
 
 class Betsetup:
 
