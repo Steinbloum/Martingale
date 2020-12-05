@@ -12,33 +12,16 @@ io = SteinCliIo()
 #---------------------------------------
 #Welcome message
 #---------------------------------------
-
-
-
-
 io.display_welcome()
-
-
-
-
-
-
-
-
-
-
-
-
 
 #**********************************
 #Start game
 #**********************************
 io.display_game_start(initial_bet)
-multiple_input = int(input("how many times do you want ot run this bet setup ? "))
 plt.figure()
 plt.ion()
 multiple_count = 0
-while multiple_count <= multiple_input:
+while multiple_count <= initial_bet.get_serie():
 
 
     #Define lists
@@ -55,12 +38,12 @@ while multiple_count <= multiple_input:
 
     color_list_choice.append(initial_bet.get_color())
     bet_list.append(initial_bet.get_value())
-    bankroll_list.append(initial_bet.get_bankroll())
+    bankroll_list.append(initial_bet.get_stack())
 
     #set variables
 
     starting_bet = initial_bet.get_value()
-    bankroll = initial_bet.get_bankroll()
+    bankroll = initial_bet.get_stack()
     objective = initial_bet.get_objective()
     loosing_streak = 0
 

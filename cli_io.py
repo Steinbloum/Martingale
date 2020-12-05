@@ -42,7 +42,7 @@ class SteinCliIo(object):
 
     Parameters:
       - initial_bet (object): an object containing the bankroll, objective
-                              bet value and bet color
+                              bet value, bet color and the serie value
     """
     self.print_separator()
     self.print(
@@ -51,7 +51,7 @@ class SteinCliIo(object):
         initial_bet.get_stack(),
         initial_bet.get_objective(),
         initial_bet.get_value(),
-        initial_bet.get_color()
+        initial_bet.get_color(),
       )
     )
     self.print_separator()
@@ -111,6 +111,7 @@ class Betsetup:
     self.objective = 0
     self.color = 0
     self.value = 0
+    self.serie = 0
 
   def get_stack(self):
     return self.stack
@@ -136,3 +137,8 @@ class Betsetup:
   def set_value(self, amount):
     self.value = amount
 
+  def set_serie(self, amount):
+    self.serie = amount
+
+  def get_serie(self):
+    return self.serie

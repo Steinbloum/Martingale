@@ -80,4 +80,13 @@ def set_bet_value():
             break
     initial_bet.set_value(bet_input)
 
+def set_serie():
+    serie = "bao"
+    serie = input("how many times do you wish to run that setup?")
+    if serie != int():
+        print("you must enter a numerical value")
+    else :
+        initial_bet.set_serie(serie)
+        print("All right, we are running this setup {} times.".format(initial_bet.get_serie()))
+
 
