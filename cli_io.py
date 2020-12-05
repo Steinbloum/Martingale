@@ -85,6 +85,22 @@ class SteinCliIo(object):
     for i in range(padding):
       self.print("", to_stack=False)
 
+  def prompt(self, msg, to_stack=True):
+    """
+    Prompts an input by displaying a message and appends it to
+    the input stack.
+
+    Parameters:
+      - msg (string): the message to display
+    Returns:
+      - (string): the raw user input
+    """
+    user_input = input(msg)
+    if to_stack:
+      self.input_stack.append(user_input)
+    return user_input
+
+
 
 class Betsetup:
 

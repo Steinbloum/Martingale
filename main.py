@@ -20,7 +20,7 @@ while runbet:
     bankroll_input = -1
     #test test until valid input for bankroll
     while bankroll_input <= 0:
-        bankroll_input = input("How much are you gambling? ")
+        bankroll_input = io.prompt("How much are you gambling? ")
         try:
             bankroll_input = int(bankroll_input)
         except ValueError:
