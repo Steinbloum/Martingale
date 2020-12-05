@@ -36,7 +36,6 @@ class SteinCliIo(object):
     self.print(intro)
     self.print_separator()
 
-
   def display_game_start(self, initial_bet):
     """
     Displays the game start text.
@@ -71,7 +70,6 @@ class SteinCliIo(object):
       self.print(duration - i, to_stack=False)
       sleep(1)
 
-
   def print_separator(self, character="*", length=32, padding=1):
     """
     Prints a visual separator in the CLI.
@@ -86,6 +84,7 @@ class SteinCliIo(object):
     self.print(character * length, to_stack=False)
     for i in range(padding):
       self.print("", to_stack=False)
+
 
 class Betsetup:
 
