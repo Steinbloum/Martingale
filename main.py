@@ -172,6 +172,10 @@ while game_on:
         plt.pause(0.1)
         multiple_count += 1
         globallist_gamecount.append(1)
+    plt.figure()
+    plt.ion()
+    win_loss_count = [globallist_win_loss.count("WIN"), globallist_win_loss.count("REKT")]
+    plt.pie(win_loss_count, labels=["WIN", "REKT"])
     plt.show()
     print(len(globallist_gamecount))
     print("win", globallist_win_loss.count("WIN"),"rekt", globallist_win_loss.count("REKT"))
