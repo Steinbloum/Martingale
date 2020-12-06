@@ -57,7 +57,7 @@ class SteinCliIo(object):
       )
     )
     self.print_separator()
-    sleep(3)
+    sleep(2)
     self.print_countdown(3)
     self.print("*********HERE WE GO*********", to_stack=False)
     self.print_separator()

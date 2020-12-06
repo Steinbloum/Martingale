@@ -178,10 +178,10 @@ while game_on:
     print("won", globallist_win_loss.count("WIN") / len(globallist_gamecount) * 100, "% of your games")
     print("the longest loosing streak was", max(globallist_loosingstreak), "times in a row")
     print("you spinned the wheel a total of",sum(globallist_spicount) ,"times.")
-    print("you spent in total,", initial_bet.get_stack() * len(globallist_gamecount), "$. \n "
+    print("You lost a total of", initial_bet.get_stack() * globallist_win_loss.count("REKT"), "$. \n "
             "You won a total of", initial_bet.get_objective() * globallist_win_loss.count("WIN"), "$.\n"
             "Net PNL is", (initial_bet.get_objective() * globallist_win_loss.count("WIN")) -
-          (initial_bet.get_stack() * len(globallist_gamecount))
+          (initial_bet.get_stack() * globallist_win_loss.count("REKT"))
           , "$.")
     run_again = input("do you want to play again ?(yes/no) ")
     if run_again == "yes":

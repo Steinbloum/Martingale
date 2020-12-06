@@ -78,7 +78,7 @@ def set_bet_value():
 
 def set_serie():
     serie = "bao"
-    serie = input("how many times do you wish to run that setup?")
+    serie = input("how many times do you wish to run that setup? ")
     try:
         serie = int(serie)
     except ValueError:
