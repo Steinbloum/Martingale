@@ -60,6 +60,8 @@ class SteinCliIo(object):
     sleep(3)
     self.print_countdown(3)
     self.print("*********HERE WE GO*********", to_stack=False)
+    self.print_separator()
+    sleep(1)
 
   def print_countdown(self, duration):
     """

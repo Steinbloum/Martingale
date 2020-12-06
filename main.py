@@ -46,6 +46,7 @@ while game_on:
         color_list_draw = []
         spinlist = []
 
+
         #input initial items in lists
 
         color_list_choice.append(initial_bet.get_color())
@@ -178,7 +179,10 @@ while game_on:
     print("the longest loosing streak was", max(globallist_loosingstreak), "times in a row")
     print("you spinned the wheel a total of",sum(globallist_spicount) ,"times.")
     print("you spent in total,", initial_bet.get_stack() * len(globallist_gamecount), "$. \n "
-            "You won a total of", initial_bet.get_objective() * globallist_win_loss.count("WIN"))
+            "You won a total of", initial_bet.get_objective() * globallist_win_loss.count("WIN"), "$.\n"
+            "Net PNL is", (initial_bet.get_objective() * globallist_win_loss.count("WIN")) -
+          (initial_bet.get_stack() * len(globallist_gamecount))
+          , "$.")
     run_again = input("do you want to play again ?(yes/no) ")
     if run_again == "yes":
         print("Carefull this gets addictive !")
