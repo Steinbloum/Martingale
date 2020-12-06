@@ -47,8 +47,11 @@ while game_on:
         spinlist = []
 
 
-        #input initial items in lists
-
+        #clear lists
+        color_list_choice.clear()
+        bet_list.clear()
+        bankroll_list.clear()
+        # input initial items in lists
         color_list_choice.append(initial_bet.get_color())
         bet_list.append(initial_bet.get_value())
         bankroll_list.append(initial_bet.get_stack())
