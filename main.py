@@ -164,7 +164,7 @@ while game_on:
                     print("*********************************************")
 
 
-
+        plt.subplot(1, 2, 1)
         plt.plot(20,30, spinlist, bankroll_list)
         plt.title("Bankroll evolution")
         plt.xlabel("Spin count")
@@ -172,11 +172,12 @@ while game_on:
         plt.pause(0.1)
         multiple_count += 1
         globallist_gamecount.append(1)
-    plt.figure()
-    plt.ion()
-    win_loss_count = [globallist_win_loss.count("WIN"), globallist_win_loss.count("REKT")]
-    plt.pie(win_loss_count, labels=["WIN", "REKT"])
-    plt.show()
+        win_loss_count = [globallist_win_loss.count("WIN"), globallist_win_loss.count("REKT")]
+        plt.subplot(1, 2, 2)
+        plt.pie(win_loss_count, labels=["WIN", "REKT"])
+        plt.title("Win/loss ratio")
+
+        plt.show()
     print(len(globallist_gamecount))
     print("win", globallist_win_loss.count("WIN"),"rekt", globallist_win_loss.count("REKT"))
     print("won", globallist_win_loss.count("WIN") / len(globallist_gamecount) * 100, "% of your games")
