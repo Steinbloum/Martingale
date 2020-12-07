@@ -33,6 +33,7 @@ while game_on:
         bankroll_list.append(initial_bet.get_stack())
         loosing_streak = 0
         loosing_streak_list.append(0)
+        spin_number = iint(randrange(37))
         spincount = 0
 
         continue_game = True
