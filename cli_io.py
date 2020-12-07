@@ -1,5 +1,7 @@
 from time import sleep
 
+black_numbers = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
+red_numbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
 
 class SteinCliIo(object):
   """
@@ -147,3 +149,56 @@ class Betsetup:
   def get_serie(self):
     return self.serie
 
+class Bankroll():
+
+    """bankroll"""
+
+    def __init__(self):
+
+      self.value = 0
+
+    def get_value(self):
+      return self.value
+
+    def set_value(self, pnl):
+       self.value += pnl
+
+class Ongoing_bet():
+    """ongoing bet"""
+
+    def __init__(self):
+
+      self.value = 0
+      self.color = "bao"
+
+    def get_value(self):
+      return self.value
+
+    def set_value(self, new_amount):
+
+      self.value = new_amount
+
+    def get_color(self):
+      return self.color
+
+    def set_color(self, new_color):
+
+      self.color = new_color
+
+
+
+
+class Spin:
+  def __init__(self):
+    self.number = 0
+
+  def get_number(self):
+    return self.number
+
+  def get_color(self):
+    if self.number in black_numbers:
+      return "black"
+    elif self.number in red_numbers:
+      return "red"
+    else:
+      return "none"

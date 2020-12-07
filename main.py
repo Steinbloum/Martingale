@@ -1,9 +1,6 @@
 from random import randrange
-
 import matplotlib.pyplot as plt
-
-from betclass import Spin
-from cli_io import SteinCliIo
+from cli_io import Betsetup, Spin, Ongoing_bet, Bankroll, SteinCliIo
 from gamefunctions import *
 
 io = SteinCliIo()
@@ -33,7 +30,7 @@ while game_on:
     plt.figure()
     plt.ion()
     multiple_count = 0
-    while multiple_count < initial_bet.get_serie():
+    while initial_bet.get_serie() < initial_bet.get_serie():
 
 
         #Define lists
@@ -58,9 +55,7 @@ while game_on:
 
         #set variables
 
-        starting_bet = initial_bet.get_value()
-        bankroll = initial_bet.get_stack()
-        objective = initial_bet.get_objective()
+
         loosing_streak = 0
         loosing_streak_list.append(0)
 
@@ -85,7 +80,7 @@ while game_on:
 
 
             #END if objective complete
-            if bankroll_list[-1] >= objective:
+            if bankroll.get_value() >= initial_bet.get_objective():
                 print("Congrats, you beat the casino, it took", spincount, "spins, you walk away with", bankroll_list[-1],"$")
                 print("The longest loosing streak was", max(loosing_streak_list), " spins in a row")
                 globallist_win_loss.append("WIN")
@@ -93,7 +88,7 @@ while game_on:
                 continue_game = False
 
             #END if REKT
-            elif bankroll_list[-1] <= 0:
+            elif bankroll.get_value() <= 0:
                 print("You got rekt, it took", spincount, "spins to do so")
                 print("your max bankroll was ", max(bankroll_list), "$")
                 print("the longest loosing streak was", max(loosing_streak_list), "spins in a row")
@@ -105,9 +100,9 @@ while game_on:
             #Spin if conditions ok
             else:
                 #go all in if not enough to double down
-                if bankroll_list[-1] < bet_list[-1]:
-                    bet_list.append(bankroll)
-                    print("you don't have enough for that bet, you go all in with", bankroll)
+                if bankroll.get_value() < current_bet.get_value():
+                    current_bet.set_value(bankroll.get_value())
+                    print("you don't have enough for that bet, you go all in with", bankroll.get_value())
                     del spinlist[-1]
                 #SPIN AND PRAY
                 else:
@@ -120,52 +115,12 @@ while game_on:
 
                     #add the winning color to the list
                     color_list_draw.append(spin.get_color())
-                    winning_color = spin.get_color()
 
-                    #************
-                    #IF WIN
-                    #************
+                    if spin.get_color() == current_bet.get_color():
+                        win()
 
-                    if spin.get_color() == color_played:
-                        #add the loosing streak to the list
-                        loosing_streak_list.append(loosing_streak)
-                        globallist_loosingstreak.append(loosing_streak_list[-1])
-                        #clear the loosing streak
-                        loosing_streak = 0
-                        #change color
-                        if color_played == "black":
-                            color_list_choice.append("red")
-                        elif color_played == "red":
-                            color_list_choice.append("black")
-                        #inject pnl in bankroll
-                        bankroll += bet_list[-1]
-                        bankroll_list.append(bankroll)
-
-
-                        #ïnitialise bet
-                        bet_played = bet_list[0]
-                        bet_list.clear()
-                        bet_list.append(initial_bet.get_value())
-                        print("Congrats you won, your bankroll is", bankroll_list[-1], ".Switch color to ", color_list_choice[-1], ". Next bet will be", initial_bet.get_value())
-
-                    #*************
-                    #IF LOST
-                    #*************
-
-                    elif winning_color != color_played:
-                        #add 1 to the loosing streak
-                        loosing_streak += 1
-                        #add the loosing streak to the loop
-                        loosing_streak_loop.append(loosing_streak)
-                        #update bankroll
-                        bankroll -= bet_list[-1]
-                        bankroll_list.append(bankroll)
-                        #update bet list (for next bet)
-                        bet_list.append(bet_played * 2 )
-                        print("You lost, your bankroll is", bankroll, "next bet will be ", bet_list[-1])
-
-                    print("*********************************************")
-
+                    elif spin.get_color() != current_bet.get_color():
+                        loose()
 
         plt.subplot(1, 2, 1)
         plt.plot(20,30, spinlist, bankroll_list)

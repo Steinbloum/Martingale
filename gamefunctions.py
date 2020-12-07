@@ -1,6 +1,20 @@
-from cli_io import Betsetup
+from cli_io import Betsetup, Spin, Ongoing_bet, Bankroll
 
+
+spin = Spin()
 initial_bet = Betsetup()
+current_bet = Ongoing_bet()
+bankroll = Bankroll()
+globallist_win_loss = []
+globallist_spicount = []
+globallist_gamecount = []
+globallist_loosingstreak = []
+
+# Define lists
+bankroll_list = []
+loosing_streak_list = []  # list to find maximum streak loop
+loosing_streak_loop = []
+spinlist = []
 
 def set_initial_stack():
     bankroll_input = -1
@@ -90,3 +104,37 @@ def set_serie():
         print("All right, we are running this setup {} times.".format(initial_bet.get_serie()))
 
 
+def win():
+    if spin.get_color() == current_bet.get_color():
+        # add the loosing streak to the list
+        #loosing_streak_list.append(loosing_streak)
+        #globallist_loosingstreak.append(loosing_streak_list[-1])
+        # clear the loosing streak
+        loosing_streak = 0
+        # change color
+        if current_bet.get_color() == "black":
+            current_bet.set_color("red")
+        elif current_bet.get_color() == "red":
+            current_bet.set_color("black")
+        # inject pnl in bankroll
+        bankroll.set_value(current_bet.get_value())
+        #bankroll_list.append(bankroll)
+
+        # ïnitialise bet
+        current_bet.set_value(initial_bet.get_value())
+        #bet_list.clear()
+        #bet_list.append(initial_bet.get_value())
+        print("Congrats you won, your bankroll is", bankroll.get_value(), ".Switch color to ", current_bet.get_color(),
+              ". Next bet will be", current_bet.get_value())
+
+def loose():
+    # add 1 to the loosing streak
+
+    # add the loosing streak to the loop
+    #loosing_streak_loop.append(loosing_streak)
+    # update bankroll
+    bankroll.set_value(-current_bet.get_value())
+    #bankroll_list.append(bankroll)
+    # update bet list (for next bet)
+    current_bet.set_value(current_bet.get_value() * 2 )
+    print("You lost, your bankroll is", bankroll.get_value(), "next bet will be ", current_bet.get_value())

@@ -2,19 +2,7 @@
 black_numbers = [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
 red_numbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
 
-class Spin:
-    def __init__(self, number):
-        self.number = number
-    def get_number(self):
-        return self.number
 
-    def get_color(self):
-        if self.number in black_numbers:
-            return "black"
-        elif self.number in red_numbers:
-            return "red"
-        else:
-            return "none"
 class Bankroll:
     def __init__(self, value):
         self.value = value
