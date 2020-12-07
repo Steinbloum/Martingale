@@ -189,10 +189,11 @@ class Ongoing_bet():
 
 
 class Spin:
+
   def __init__(self):
     self.number = 0
 
-  def get_number(self):
+  def get_number(self, number):
     return self.number
 
   def get_color(self):

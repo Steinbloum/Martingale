@@ -58,8 +58,6 @@ while game_on:
 
         loosing_streak = 0
         loosing_streak_list.append(0)
-
-
         spin = Spin(int(randrange(37)))
         spincount = 0
 

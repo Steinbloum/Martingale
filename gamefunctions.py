@@ -1,7 +1,8 @@
 from cli_io import Betsetup, Spin, Ongoing_bet, Bankroll
+from random import randrange
 
 
-spin = Spin()
+spin = Spin(int(randrange(37)))
 initial_bet = Betsetup()
 current_bet = Ongoing_bet()
 bankroll = Bankroll()
